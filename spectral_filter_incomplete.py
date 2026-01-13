@@ -74,9 +74,10 @@ def audio_callback(indata, outdata, frames, time_info, status):
         # Frequency represented by bin k
         freq = f * bin_width
   
-        ########################
-        # START YOUR CODE HERE #
-        ########################
+        if LOW_CUT <= freq <= HIGH_CUT:
+            X_filtered[f] = X[f]
+        else:
+            X_filtered[f] = 0.0
 
         # Decide whether this frequency survives
 
